@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const source = process.argv[2];
 if (!source) {
-    console.log("Por favor, passe um arquivo de entrada como argumento!");
+    console.log("Falta um arquivo de entrada");
     process.exit(1);
 }
 
@@ -20,6 +20,9 @@ function calcularMDC(x, y) {
     return x;
 }
 
-console.log("O máximo divisor comum é:", calcularMDC(a, b));
+console.log("O maior divisor comum é:", calcularMDC(a, b));
 
-// node mdc.js input.txt  PARA RODAR NO TERMINAL (CMD)
+
+// para explicar o prof :
+//-- > lê dois números, o da linha 0 sendo X e o da linha 1 sendo Y para calcular o mdc dos dois
+// node mdc.js input.txt  PARA RODAR NO TERMINAL 

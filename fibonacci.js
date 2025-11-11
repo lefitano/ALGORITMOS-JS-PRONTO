@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const source = process.argv[2];
 if (!source) {
-    console.log("Por favor, passe um arquivo de entrada como argumento!");
+    console.log("passa um arquivo de entrada!");
     process.exit(1);
 }
 
@@ -22,5 +22,5 @@ for (let i = 0; i < n; i++) {
 
 console.log("Sequência de Fibonacci:", sequencia.join(", "));
 
-
+// lê a primeira linha para saber a quantidade de números que serão somados na sequencia
 //node fibonacci.js input.txt  PARA RODAR NO TERMINAL (CMD)

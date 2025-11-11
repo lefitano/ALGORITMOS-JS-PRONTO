@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const source = process.argv[2];
 if (!source) {
-    console.log("Por favor, passe um arquivo de entrada como argumento!");
+    console.log("ta sem arquivo de entrada");
     process.exit(1);
 }
 
@@ -23,5 +23,5 @@ if (ehPrimo(numero)) {
 } else {
     console.log(numero + " não é primo!");
 }
-
+// lê o primeiro número e retorna se é primo ou não pelo consolelog
 // node numeroprimo.js input.txt  para rodar no terminal (CMD)

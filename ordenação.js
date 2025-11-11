@@ -36,6 +36,8 @@ function partition(arr, left, right) {
 quickSort(numeros, 0, numeros.length - 1);
 
 console.log("Array ordenado:", numeros.join(", "));
+// revisao para explicar o prof :
+// na linha 1 a quantidade numeros
 
-
-// node ordenação.js input.txt no terminal cmd
+//na linha 2 a 9 são os numeros que vão ser ordenados
+// ------ > executar com node ordenação.js input.txt no terminal 
