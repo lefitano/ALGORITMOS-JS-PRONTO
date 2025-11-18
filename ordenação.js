@@ -1,8 +1,8 @@
 const fs = require('fs');
 
-const source = process.argv[2];
+const source = process.argv[2]; 
 if (!source) {
-    console.log("Por favor, passe um arquivo de entrada como argumento!");
+    console.log("Passa um arquivo de entrada");
     process.exit(1);
 }
 
@@ -11,33 +11,53 @@ const input = fs.readFileSync(source, 'utf8').trim().split('\n');
 const n = parseInt(input[0]);
 let numeros = input.slice(1, n + 1).map(Number);
 
-function quickSort(arr, left, right) {
-    if (left < right) {
-        const pivotIndex = partition(arr, left, right);
-        quickSort(arr, left, pivotIndex - 1);
-        quickSort(arr, pivotIndex + 1, right);
+// Função QuickSort Simples
+function quickSortSimples(arr) {
+    //  array com 0 ou 1 elemento já está ordenado
+    if (arr.length <= 1) {
+        return arr;
     }
-}
-
-function partition(arr, left, right) {
-    const pivot = arr[right];
-    let i = left - 1;
-
-    for (let j = left; j < right; j++) {
-        if (arr[j] <= pivot) {
-            i++;
-            [arr[i], arr[j]] = [arr[j], arr[i]];
+    
+    // Escolhendo o elemento do meio
+    const pivo = arr[Math.floor(arr.length / 2)];
+    
+    // Separa em 3 grupos
+    const menores = [];
+    const iguais = [];
+    const maiores = [];
+    
+    // Distribui os elementos nos grupos
+    for (let numero of arr) {
+        if (numero < pivo) {
+            menores.push(numero);
+        } else if (numero > pivo) {
+            maiores.push(numero);
+        } else {
+            iguais.push(numero);
         }
     }
-    [arr[i + 1], arr[right]] = [arr[right], arr[i + 1]];
-    return i + 1;
+    
+    // Junta tudo ordenado recursivamente
+    return [
+        ...quickSortSimples(menores),
+        ...iguais,
+        ...quickSortSimples(maiores)
+    ];
 }
 
-quickSort(numeros, 0, numeros.length - 1);
+// Ordena os números
+numeros = quickSortSimples(numeros);
 
-console.log("Array ordenado:", numeros.join(", "));
-// revisao para explicar o prof :
-// na linha 1 a quantidade numeros
+// Exibe os números ordenados
+console.log("Números ordenados:");
+for (let numero of numeros) {
+    console.log(numero);
+}
 
-//na linha 2 a 9 são os numeros que vão ser ordenados
-// ------ > executar com node ordenação.js input.txt no terminal 
+// para lembrar e explicar professor**
+// o primeiro valor do arquivo de entrada é a quantidade de números n
+// as outras linhas são os números a serem ordenados
+// o QuickSort divide o array em menores, iguais e maiores que o pivô
+// depois junta tudo ordenado de forma recursiva
+
+// para rodar o codigo no terminal: node ordenacao.js input.txt

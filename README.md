@@ -2,7 +2,7 @@
 // const fs = require('fs');
 // const source = process.argv[2];
 // if (!source) {
-//     console.log("Por favor, passe um arquivo de entrada como argumento!");
+//     console.log("PARA PASSAR O ARQUIVO DE ENTRADA INPUT.TXTT");
 //     process.exit(1);
 // }
 // const input = fs.readFileSync(source, 'utf8').trim().split('\n');
@@ -18,3 +18,6 @@
 
 
 COMO USAR OS ALGORIRTMOS --->>> NODE NOMEDOARQUIVO.JS INPUT.TXT NO TERMINAL
+
+----- > CASO ELE PEÇA PARA CLONAR O REPOSITORIO NO PC DA UNIFOR MESMO
+ctrl shift p  e selecionar  na barra de pesquisa pra clonar o repositorio , depois colar o link do repositório

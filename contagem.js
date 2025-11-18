@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const source = process.argv[2];
 if (!source) {
-    console.log("Por favor, passe um arquivo de entrada como argumento!");
+    console.log("Passar arquivo de entrada");
     process.exit(1);
 }
 
